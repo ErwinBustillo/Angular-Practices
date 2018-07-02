@@ -5,4 +5,8 @@ This repo will contains example projects of Angular (v6)
 2. SPA
 3. Usage of pipes
 4. Spotify app 
+5. Ionic App (WISHLIST)
+6. Miselaneous
+7. Auth App (With Auth0 authentication system)
+8. Forms
 ... And More in the future
