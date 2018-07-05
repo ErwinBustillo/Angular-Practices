@@ -9,4 +9,6 @@ This repo will contains example projects of Angular (v6)
 6. Miselaneous
 7. Auth App (With Auth0 authentication system)
 8. Forms
+9. HeroesApp (with firebase CRUD)
+
 ... And More in the future
