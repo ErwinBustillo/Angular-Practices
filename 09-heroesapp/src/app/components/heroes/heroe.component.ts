@@ -26,7 +26,7 @@ export class HeroeComponent implements OnInit {
     console.log(this.heroe);
 
     this._heroeService.nuevoHeroe(this.heroe)
-      .subscribe( data => {
+      .subscribe( (data:any) => {
         this.router.navigate(['/heroe',data.name]);
       }, err=> console.error(err));
   }
