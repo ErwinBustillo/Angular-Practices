@@ -52,4 +52,25 @@ export class HeroesService {
         return res;
       }));
   }
+
+  
+  getHeroes(){
+    let headers = new HttpHeaders({
+      'Content-Type':'application/json'
+    });
+    return this.http.get(this.heroesURL,{headers})
+      .pipe(map(res => {
+        console.log(res);
+        return res;
+      }));
+  }
+
+  borrarHeroe(key$:string){
+    let url = `${this.heroeUrl}/${key$}.json`;
+    return this.http.delete(url)
+      .pipe(map(res => {
+        console.log(res);
+        return res;
+      }));
+  }
 }
