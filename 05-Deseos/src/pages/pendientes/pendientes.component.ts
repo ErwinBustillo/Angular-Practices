@@ -16,9 +16,7 @@ export class PendientesPage {
 
     }
 
-    listaSeleccionada(lista:Lista){
-        console.log(lista);
-    }
+
 
     agregarLista(){
         //this.navCtrl.push(AgregarPage);
@@ -52,4 +50,6 @@ export class PendientesPage {
         });
         alert.present();
     }
+
+  
 }

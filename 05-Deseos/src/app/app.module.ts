@@ -1,3 +1,4 @@
+import { ListasComponent } from './../components/listas.component';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -16,13 +17,18 @@ import { AgregarPage } from '../pages/agregar/agregar.component';
 //servicios
 import { DeseosService } from '../services/deseos.service';
 
+//pipes
+import { FiltroCompletadoPipe } from './../pipes/filtro-completado/filtro-completado';
+
 @NgModule({
   declarations: [
     MyApp,
     TabsPage,
     PendientesPage,
     TerminadosPage,
-    AgregarPage
+    AgregarPage,
+    FiltroCompletadoPipe,
+    ListasComponent
   ],
   imports: [
     BrowserModule,
