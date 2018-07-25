@@ -28,10 +28,17 @@ export class PeliculasService {
 
     return this._http.jsonp(this.getURL(req, 'es'), '').pipe(map(res => res ));
   }
+
   getMostPopular() {
     const request = '/discover/movie?sort_by=popularity.desc';
     return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map(res => res ));
   }
+
+  getKidsPopular(){
+    const request = '/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc';
+    return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map(res => res ));
+  }
+  
 
   searchMovie(texto:string){
     const request = `/search/movie?query=${texto}&sort_by=popularity.desc`;
