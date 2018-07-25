@@ -8,7 +8,11 @@ import { SearchComponent } from './components/search/search.component';
 const ROUTES: Routes = [
     { path: 'home',component: HomeComponent },
     { path: 'search', component: SearchComponent },
-    { path: 'pelicula',component: PeliculasComponent },
+    { path: 'search/:text', component: SearchComponent },
+
+    { path: 'movie/:id/:pag',component: PeliculasComponent },
+    { path: 'movie/:id/:pag/:q',component: PeliculasComponent },
+
     { path: '**', pathMatch:'full',redirectTo:'home'},
 
 ];

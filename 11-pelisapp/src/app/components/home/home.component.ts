@@ -9,11 +9,19 @@ import { PeliculasService } from '../../services/peliculas.service';
 export class HomeComponent implements OnInit {
 
   cartels:any;
+  populars:any;
+  kids:any;
 
   constructor(private ps:PeliculasService) { 
     this.ps.getCartelera().subscribe((data)=> {
+      //console.log(data);
       this.cartels = data;
     });
+
+    this.ps.getMostPopular().subscribe((data)=> this.populars = data);
+
+    this.ps.getKidsPopular().subscribe((data)=> this.kids = data);
+
     
   }
 

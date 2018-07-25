@@ -9,6 +9,8 @@ import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { SearchComponent } from './components/search/search.component';
 import { APP_ROUTES } from './app.routes';
 import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
+import { GaleryComponent } from './components/home/galery.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
     HomeComponent,
     PeliculasComponent,
     SearchComponent,
-    PeliculaImagenPipe
+    PeliculaImagenPipe,
+    GaleryComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientJsonpModule,
+    FormsModule,
     APP_ROUTES
   ],
   providers: [],
