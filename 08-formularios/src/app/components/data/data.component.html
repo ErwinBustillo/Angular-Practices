@@ -45,6 +45,58 @@
     </div>
   </div>
 
+  <div class="form-group row">
+      <label class="col-2 col-form-label">Username</label>
+      <div class="col-md-8">
+  
+        <input class="form-control"
+               type="text"
+               placeholder="username"
+               formControlName="username">
+      </div>
+  </div>
+
+
+  <div class="form-group row">
+      <label class="col-2 col-form-label">Password</label>
+      <div class="col-md-8">
+  
+        <input class="form-control"
+               type="password"
+               placeholder="Password"
+               formControlName="pass1">
+      </div>
+  </div>
+
+  <div class="form-group row">
+      <label class="col-2 col-form-label">Confirm Password</label>
+      <div class="col-md-8">
+  
+        <input class="form-control"
+               type="password"
+               placeholder="Confirm password"
+               formControlName="pass2">
+      </div>
+  </div>
+
+
+
+  <div class="form-group row">
+      <label class="col-2 col-form-label">Pasatiempos</label>
+      <div class="col-md-8" formArrayName="pasatiempos">
+        <input *ngFor="let pasatiempo of forma.controls['pasatiempos'].controls; let i=index"
+        [formControlName]="i"
+        class="form-control"
+        type="text">
+      </div>
+
+      <button
+      class="btn btn-primary" 
+      (click)="agregarPasatiempo()"
+      type="button">Agregar Pasatiempo</button>
+  </div>
+
+
 
 
   <div class="form-group row">
@@ -57,5 +109,6 @@
   </div>
 
   {{forma.valid}}
-
+  <br>
+  {{forma.status}}
 </form>
