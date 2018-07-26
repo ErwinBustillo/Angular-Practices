@@ -4,7 +4,7 @@
 
   <div>
 
-    <div class="form-group row">
+    <div class="form-group row" [ngClass]="{'has-danger': (nombre.errors?.minlength || nombre.errors?.required) && nombre.touched}">
       <label class="col-2 col-form-label">Nombre</label>
       <div class="col-8">
 
@@ -14,7 +14,14 @@
                type="text"
                placeholder="Nombre"
                minlength="5"
-               required>
+               required
+               #nombre="ngModel">
+        <div class="form-control-feedback" *ngIf="nombre.errors?.required">
+          Este campo es requerido
+        </div>
+        <div class="form-control-feedback" *ngIf="nombre.errors?.minlength">
+          Este campo requiere por lo menos {{nombre.errors.minlength.requiredLength}} caracteres
+        </div>       
       </div>
     </div>
 
@@ -26,7 +33,13 @@
                [(ngModel)]="usuario.apellido"
                name="apellido"
                type="text"
-               placeholder="Apellido">
+               placeholder="Apellido"
+               #apellido="ngModel"
+               required>
+        <div *ngIf="nombre.errors?.required">
+          Este campo es requerido
+        </div>
+          
       </div>
     </div>
 
@@ -41,16 +54,35 @@
              name="email"
              type="email"
              placeholder="Correo electrónico"
-             required>
+             #email="ngModel"
+             required
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+      <div *ngIf="nombre.errors?.required">
+        Este campo es requerido
+      </div>
+      <div *ngIf="nombre.errors?.pattern">
+        Este correo no es valido
+      </div>   
     </div>
   </div>
 
+  <div class="form-group row">
+      <label class="col-2 col-form-label">Pais</label>
+      <div class="input-group col-md-8">
+          <select class="form-control"
+           [(ngModel)]="usuario.pais"
+           name="pais">
+           <option value="">Seleccione un pais</option>
+           <option *ngFor="let pais of paises" [value]="pais.codigo">{{pais.nombre}}</option>
+          </select>
+      </div>
+  </div>
 
 
   <div class="form-group row">
     <label class="col-2 col-form-label">&nbsp;</label>
     <div class="input-group col-md-8">
-      <button type="submit" class="btn btn-outline-primary">
+      <button [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary">
         Guardar
       </button>
     </div>
